@@ -56,7 +56,7 @@ const buttonCreate = controls.querySelector('[data-create]');
 const buttonDestroy = controls.querySelector('[data-destroy]');
 const boxexContainer = document.querySelector('#boxes');
 
-function creatBoxes(amount) {
+function createBoxes(amount) {
   const elements = [];
   let size = 30;
 
@@ -68,7 +68,6 @@ function creatBoxes(amount) {
     div.style.margin = '5px';
     elements.push(div);
     size += 10;
-    console.log(elements);
   } 
   
     boxexContainer.append(...elements);
@@ -80,7 +79,7 @@ buttonCreate.addEventListener('click', () => {
   const amount = Number(input.value.trim());
   if (amount >= 1 && amount <= 100) {
     destroyBoxes();
-    creatBoxes(amount);
+    createBoxes(amount);
     input.value = '';
   }
   else { alert('You should enter a number between 1 and 100') }
