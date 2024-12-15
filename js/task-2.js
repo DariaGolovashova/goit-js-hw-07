@@ -1,49 +1,51 @@
-//home_task2
-// Створи клас Storage, який створюватиме об'єкти для управління складом товарів. 
-// Клас очікує лише один аргумент — початковий масив товарів,
-//   який записується до створеного об'єкта в приватну властивість items.
+// Напиши скрипт для створення галереї зображень на основі масиву даних. 
+// HTML містить список ul.gallery.
 
-// Оголоси наступні методи класу:
+// <ul class="gallery"></ul>
 
-// getItems() — повертає масив поточних товарів у приватній властивості items.
-//   addItem(newItem) — приймає новий товар newItem і додає його до масиву товарів 
-// у приватну властивість items об'єкта.
-// removeItem(itemToRemove) — приймає рядок з назвою товару itemToRemove 
-// і видаляє його з масиву товарів у приватній властивості items об'єкта.
+// Використовуй масив об'єктів images для створення елементів <img>, 
+// вкладених в < li >.
 
+// Ти можеш створити й додати HTML-елементи, використовуючи 
+// document.createElement() і elem.append() або шаблонні рядки 
+// і elem.insertAdjacentHTML().
 
-// Візьми код нижче з ініціалізацією екземпляра й викликами методів 
-// і встав його після оголошення класу для перевірки коректності роботи.
-// У консоль будуть виведені результати їх роботи.Будь ласка, нічого там не змінюй.
+// Усі елементи галереї повинні додаватися в DOM за одну операцію додавання.
+// Додай мінімальне оформлення галереї флексбоксами через CSS класи.
 
-class Storage { 
-  #items;
-  constructor(initialItem = []) { 
-    this.#items = initialItem;
+const images = [
+  {
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
+  },
+  {
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+  },
+  {
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
+  },
+  {
+    url: "https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg",
+    alt: "Alpine Spring Meadows",
+  },
+  {
+    url: "https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg",
+    alt: "Nature Landscape",
+  },
+  {
+    url: "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",
+    alt: "Lighthouse Coast Sea",
   }
+];
 
-  getItems() { 
-    return this.#items;
-  }
+const gallery = document.querySelector('.gallery');
+console.log(gallery);
+const galleryMarkup = images.map(({ url, alt }) => {
+  return `<li class="gallery-item">
+<img src="${url}" alt="${alt}" class="gallery-image"> </li>`;
+}).join('');
+gallery.insertAdjacentHTML('beforeend', galleryMarkup);
 
-  addItem(newItem) {
-    this.#items.push(newItem);
-   }
-
-  removeItem(itemToRemove) { 
-    this.#items = this.#items.filter(item => item !== itemToRemove);
-  }
-
-}
-
-const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
-
-storage.addItem("Droid");
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-
-storage.removeItem("Prolonger");
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
-
-storage.removeItem("Scaner");
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+console.log(galleryMarkup);
