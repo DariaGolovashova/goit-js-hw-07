@@ -48,22 +48,22 @@ const galleryMarkup = images.map(({ url, alt }) => {
 }).join('');
 gallery.insertAdjacentHTML('beforeend', galleryMarkup);
 
-gallery.style.display = 'flex';
-gallery.style.flexWrap ='wrap';
-gallery.style.rowGap = '24px';
-gallery.style.columnGap = '48px';
-gallery.style.listStyle = 'none';
-gallery.style.justifyContent = 'center';
+// gallery.style.display = 'flex';
+// gallery.style.flexWrap ='wrap';
+// gallery.style.rowGap = '24px';
+// gallery.style.columnGap = '48px';
+// gallery.style.listStyle = 'none';
+// gallery.style.justifyContent = 'center';
 
-const items = document.querySelectorAll('.gallery-item');
-items.forEach((item) => {
-  item.style.flexBasis = "calc((100%-48px)/3)"; 
-  item.style.maxWidth = '360px';
-})
+// const items = document.querySelectorAll('.gallery-item');
+// items.forEach((item) => {
+//   item.style.flexBasis = "calc((100% - 48px) / 3)"; 
+//   item.style.maxWidth = '1128px';
+// })
 
-const galleryImages = document.querySelectorAll('.gallery-image');
-galleryImages.forEach((img) => {
-  img.style.width = '100%'; 
-  img.style.height = '300px'; //auto
-  img.style.objectFit = 'cover';
-})
+// const galleryImages = document.querySelectorAll('.gallery-image');
+// galleryImages.forEach((img) => {
+//   img.style.width = '100%'; 
+//   img.style.height = '300px'; //auto
+//   img.style.objectFit = 'cover';
+// })
